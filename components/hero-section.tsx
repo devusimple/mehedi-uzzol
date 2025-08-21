@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { ArrowDown, Download, Mail } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowDown, Download, Mail } from "lucide-react";
+import Image from "next/image";
 
 const roles = [
   "Programmer",
@@ -12,50 +13,53 @@ const roles = [
   "Backend Service's",
   "SEO Expert",
   "Digital Marketer",
-]
+];
 
 export function HeroSection() {
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
-  const [displayedText, setDisplayedText] = useState("")
-  const [isTyping, setIsTyping] = useState(true)
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    const currentRole = roles[currentRoleIndex]
-    let timeoutId: NodeJS.Timeout
+    const currentRole = roles[currentRoleIndex];
+    let timeoutId: NodeJS.Timeout;
 
     if (isTyping) {
       if (displayedText.length < currentRole.length) {
         timeoutId = setTimeout(() => {
-          setDisplayedText(currentRole.slice(0, displayedText.length + 1))
-        }, 100)
+          setDisplayedText(currentRole.slice(0, displayedText.length + 1));
+        }, 100);
       } else {
         timeoutId = setTimeout(() => {
-          setIsTyping(false)
-        }, 2000)
+          setIsTyping(false);
+        }, 2000);
       }
     } else {
       if (displayedText.length > 0) {
         timeoutId = setTimeout(() => {
-          setDisplayedText(displayedText.slice(0, -1))
-        }, 50)
+          setDisplayedText(displayedText.slice(0, -1));
+        }, 50);
       } else {
-        setCurrentRoleIndex((prev) => (prev + 1) % roles.length)
-        setIsTyping(true)
+        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+        setIsTyping(true);
       }
     }
 
-    return () => clearTimeout(timeoutId)
-  }, [displayedText, isTyping, currentRoleIndex])
+    return () => clearTimeout(timeoutId);
+  }, [displayedText, isTyping, currentRoleIndex]);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16"
+    >
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
@@ -74,13 +78,18 @@ export function HeroSection() {
               </div>
 
               <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl text-pretty">
-                I build apps, extensions, and AI-powered solutions. Currently pursuing BSc in Physics while creating
-                innovative digital experiences.
+                I build Web apps, Cross platform App, Backend Solution and
+                AI-powered solutions. Currently pursuing BSc in Physics while
+                creating innovative digital experiences.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" onClick={() => scrollToSection("#projects")} className="text-base px-8 py-3">
+              <Button
+                size="lg"
+                onClick={() => scrollToSection("#projects")}
+                className="text-base px-8 py-3"
+              >
                 View My Work
                 <ArrowDown className="ml-2 h-4 w-4" />
               </Button>
@@ -104,10 +113,16 @@ export function HeroSection() {
 
               <div className="h-8 w-px bg-border" />
 
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-                <Download className="mr-2 h-4 w-4" />
-                Download CV
-              </Button>
+              <a href="../public/cv.pdf" download={true}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-foreground hover:text-foreground cursor-pointer"
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                  Download CV
+                </Button>
+              </a>
             </div>
           </div>
 
@@ -116,30 +131,75 @@ export function HeroSection() {
             <div className="relative">
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border flex items-center justify-center">
                 <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-xl bg-card border border-border flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <div className="w-24 h-24 mx-auto rounded-full bg-primary/20 flex items-center justify-center">
-                      <span className="text-3xl font-bold text-primary">MH</span>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="text-sm text-muted-foreground">BSc Physics Student</div>
-                      <div className="text-sm text-muted-foreground">Govt. Edward College, Pabna</div>
-                    </div>
-                  </div>
+                  <Image
+                    src={require("@/public/working-table.jpg")}
+                    alt="profile-img"
+                    loading="lazy"
+                    className="w-full h-full rounded-md object-cover"
+                  />
                 </div>
               </div>
 
               {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-                <span className="text-xs font-mono text-primary">React</span>
+              {/* <div className="absolute -top-4 -right-4 w-16 h-16 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                <span className="text-xs font-mono text-primary">
+                  <Image
+                    src={require("@/public/front-end-programming.png")}
+                    alt="Frontend logo"
+                    className="object-cover"
+                  />
+                </span>
               </div>
 
               <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
-                <span className="text-xs font-mono text-accent">Go</span>
+                <span className="text-xs font-mono text-accent">
+                  <Image
+                    src={require("@/public/bullhorn.png")}
+                    alt="Frontend logo"
+                    className="object-cover"
+                  />
+                </span>
               </div>
 
               <div className="absolute top-1/2 -left-8 w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center">
-                <span className="text-xs font-mono text-secondary-foreground">ML</span>
+                <span className="text-xs font-mono text-secondary-foreground">
+                  <Image
+                    src={require("@/public/machine-learning.png")}
+                    alt="Frontend logo"
+                    className="object-cover"
+                  />
+                </span>
               </div>
+
+              <div className="absolute top-1/2 -right-8 w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center">
+                <span className="text-xs font-mono text-secondary-foreground">
+                  <Image
+                    src={require("@/public/app-development.png")}
+                    alt="Frontend logo"
+                    className="object-cover"
+                  />
+                </span>
+              </div>
+
+              <div className="absolute right-1/2 -top-8 w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center">
+                <span className="text-xs font-mono text-secondary-foreground">
+                  <Image
+                    src={require("@/public/app-development.png")}
+                    alt="Frontend logo"
+                    className="object-cover"
+                  />
+                </span>
+              </div>
+
+              <div className="absolute right-1/2 -bottom-8 w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center">
+                <span className="text-xs font-mono text-secondary-foreground">
+                  <Image
+                    src={require("@/public/app-development.png")}
+                    alt="Frontend logo"
+                    className="object-cover"
+                  />
+                </span>
+              </div> */}
             </div>
           </div>
         </div>
@@ -155,5 +215,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

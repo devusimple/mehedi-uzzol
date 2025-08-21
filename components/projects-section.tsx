@@ -1,7 +1,17 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github, Smartphone, Globe, Database, Brain, Code, Zap } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  ExternalLink,
+  Github,
+  Smartphone,
+  Globe,
+  Database,
+  Brain,
+  Code,
+  Zap,
+} from "lucide-react";
+import Link from "next/link";
 
 const projects = [
   {
@@ -88,16 +98,26 @@ const projects = [
     },
     featured: false,
   },
-]
+];
 
-const categories = ["All", "Web App", "Mobile", "Desktop", "Extension", "AI/ML", "Backend"]
+const categories = [
+  "All",
+  "Web App",
+  "Mobile",
+  "Desktop",
+  "Extension",
+  "AI/ML",
+  "Backend",
+];
 
 export function ProjectsSection() {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-balance">Featured Projects</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-balance">
+            Featured Projects
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
             A showcase of my work across different technologies and platforms
           </p>
@@ -105,7 +125,9 @@ export function ProjectsSection() {
 
         {/* Featured Projects */}
         <div className="mb-16">
-          <h3 className="text-2xl font-semibold mb-8 text-center">Highlighted Work</h3>
+          <h3 className="text-2xl font-semibold mb-8 text-center">
+            Highlighted Work
+          </h3>
           <div className="grid lg:grid-cols-3 gap-8">
             {projects
               .filter((project) => project.featured)
@@ -140,11 +162,17 @@ export function ProjectsSection() {
                   </CardHeader>
 
                   <CardContent className="space-y-4">
-                    <p className="text-muted-foreground text-sm leading-relaxed text-pretty">{project.description}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed text-pretty">
+                      {project.description}
+                    </p>
 
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="outline" className="text-xs">
+                        <Badge
+                          key={techIndex}
+                          variant="outline"
+                          className="text-xs"
+                        >
                           {tech}
                         </Badge>
                       ))}
@@ -167,7 +195,9 @@ export function ProjectsSection() {
 
         {/* All Projects */}
         <div>
-          <h3 className="text-2xl font-semibold mb-8 text-center">More Projects</h3>
+          <h3 className="text-2xl font-semibold mb-8 text-center">
+            More Projects
+          </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects
               .filter((project) => !project.featured)
@@ -201,11 +231,17 @@ export function ProjectsSection() {
                   </CardHeader>
 
                   <CardContent className="space-y-3">
-                    <p className="text-muted-foreground text-sm leading-relaxed text-pretty">{project.description}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed text-pretty">
+                      {project.description}
+                    </p>
 
                     <div className="flex flex-wrap gap-1">
                       {project.tech.slice(0, 3).map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="outline" className="text-xs">
+                        <Badge
+                          key={techIndex}
+                          variant="outline"
+                          className="text-xs"
+                        >
                           {tech}
                         </Badge>
                       ))}
@@ -217,11 +253,19 @@ export function ProjectsSection() {
                     </div>
 
                     <div className="flex gap-2 pt-1">
-                      <Button size="sm" variant="default" className="flex-1 text-xs">
+                      <Button
+                        size="sm"
+                        variant="default"
+                        className="flex-1 text-xs"
+                      >
                         <ExternalLink className="mr-1 h-3 w-3" />
                         Demo
                       </Button>
-                      <Button size="sm" variant="outline" className="px-3 bg-transparent">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="px-3 bg-transparent"
+                      >
                         <Github className="h-3 w-3" />
                       </Button>
                     </div>
@@ -234,17 +278,21 @@ export function ProjectsSection() {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold">Interested in working together?</h3>
+            <h3 className="text-xl font-semibold">
+              Interested in working together?
+            </h3>
             <p className="text-muted-foreground max-w-md mx-auto text-pretty">
               I'm always open to discussing new projects and opportunities.
             </p>
-            <Button size="lg" className="mt-4">
-              <ExternalLink className="mr-2 h-4 w-4" />
-              View All Projects on GitHub
-            </Button>
+            <Link href={"https://www.github.com/devusimple"}>
+              <Button size="lg" className="mt-4 cursor-pointer">
+                <ExternalLink className="mr-2 h-4 w-4" />
+                View All Projects on GitHub
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

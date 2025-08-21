@@ -1,14 +1,24 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Badge } from "@/components/ui/badge"
-import { Mail, MapPin, Clock, Send, Github, Linkedin, Twitter, ExternalLink } from "lucide-react"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import {
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  Github,
+  Linkedin,
+  Twitter,
+  ExternalLink,
+  Facebook,
+} from "lucide-react";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -16,20 +26,22 @@ export function ContactSection() {
     email: "",
     subject: "",
     message: "",
-  })
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission here
-    console.log("Form submitted:", formData)
-  }
+    console.log("Form submitted:", formData);
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const contactInfo = [
     {
@@ -50,13 +62,13 @@ export function ContactSection() {
       value: "Within 24 hours",
       link: null,
     },
-  ]
+  ];
 
   const socialLinks = [
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/mehedi-hasan",
+      url: "https://github.com/devusimple",
       username: "@mehedi-hasan",
     },
     {
@@ -71,16 +83,24 @@ export function ContactSection() {
       url: "https://twitter.com/mehedi_hasan",
       username: "@mehedi_hasan",
     },
-  ]
+    {
+      name: "Facebook",
+      icon: Facebook,
+      url: "https://facebook.com/huzzat77",
+      username: "@huzzat77",
+    },
+  ];
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-balance">Get In Touch</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-balance">
+            Get In Touch
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Ready to bring your ideas to life? Let's discuss your next project and how I can help you achieve your
-            goals.
+            Ready to bring your ideas to life? Let's discuss your next project
+            and how I can help you achieve your goals.
           </p>
         </div>
 
@@ -90,7 +110,8 @@ export function ContactSection() {
             <CardHeader>
               <CardTitle className="text-xl">Send me a message</CardTitle>
               <p className="text-muted-foreground">
-                Fill out the form below and I'll get back to you as soon as possible.
+                Fill out the form below and I'll get back to you as soon as
+                possible.
               </p>
             </CardHeader>
             <CardContent>
@@ -178,9 +199,14 @@ export function ContactSection() {
                       </div>
                     </div>
                     <div className="space-y-1">
-                      <h3 className="font-medium text-foreground">{info.title}</h3>
+                      <h3 className="font-medium text-foreground">
+                        {info.title}
+                      </h3>
                       {info.link ? (
-                        <a href={info.link} className="text-muted-foreground hover:text-primary transition-colors">
+                        <a
+                          href={info.link}
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
                           {info.value}
                         </a>
                       ) : (
@@ -209,8 +235,12 @@ export function ContactSection() {
                     <div className="flex items-center space-x-3">
                       <social.icon className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
                       <div>
-                        <div className="font-medium text-foreground">{social.name}</div>
-                        <div className="text-sm text-muted-foreground">{social.username}</div>
+                        <div className="font-medium text-foreground">
+                          {social.name}
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          {social.username}
+                        </div>
                       </div>
                     </div>
                     <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -224,10 +254,13 @@ export function ContactSection() {
               <CardContent className="p-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                  <span className="font-medium text-foreground">Available for freelance work</span>
+                  <span className="font-medium text-foreground">
+                    Available for freelance work
+                  </span>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
-                  I'm currently accepting new projects and would love to hear about yours.
+                  I'm currently accepting new projects and would love to hear
+                  about yours.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="secondary">React Development</Badge>
@@ -241,5 +274,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

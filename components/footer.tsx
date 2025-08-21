@@ -1,51 +1,69 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Twitter, Mail, ArrowUp } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Mail,
+  ArrowUp,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 
 export function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/mehedi-hasan",
+      url: "https://github.com/devusimple",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/mehedi-hasan",
+      url: "https://linkedin.com/in/mehedi-uzzol",
     },
     {
       name: "Twitter",
       icon: Twitter,
-      url: "https://twitter.com/mehedi_hasan",
+      url: "https://twitter.com/mehedi_uzzol",
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      url: "https://www.instagram.com/mehedi_uzzol",
+    },
+    {
+      name: "Facebook",
+      icon: Facebook,
+      url: "https://www.facebook.com/huzzat77",
     },
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:mehedi.hasan@example.com",
+      url: "mailto:mehedi.uzzol@example.com",
     },
-  ]
+  ];
 
   const quickLinks = [
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
-  ]
+  ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <footer className="bg-card border-t border-border">
@@ -56,12 +74,15 @@ export function Footer() {
             {/* Brand Section */}
             <div className="lg:col-span-2 space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-foreground">Mehedi Hasan</h3>
+                <h3 className="text-xl font-bold text-foreground">
+                  Mehedi Hasan
+                </h3>
                 <p className="text-muted-foreground">Programmer & Freelancer</p>
               </div>
               <p className="text-muted-foreground max-w-md text-pretty">
-                Part-time programmer and BSc Physics student specializing in React, Go, ML, and Android development.
-                Building innovative solutions one project at a time.
+                Part-time programmer and BSc Physics student specializing in
+                React, Go, ML, and Android development. Building innovative
+                solutions one project at a time.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
@@ -113,10 +134,14 @@ export function Footer() {
         {/* Bottom Footer */}
         <div className="py-6 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <div className="text-sm text-muted-foreground">© {currentYear} Mehedi Hasan. All rights reserved.</div>
+            <div className="text-sm text-muted-foreground">
+              © {currentYear} Mehedi Hasan. All rights reserved.
+            </div>
 
             <div className="flex items-center space-x-6">
-              <div className="text-sm text-muted-foreground">Built with Next.js & Tailwind CSS</div>
+              <div className="text-sm text-muted-foreground">
+                Built with Next.js, Tailwind CSS & ShadCN
+              </div>
 
               <Button
                 variant="ghost"
@@ -132,5 +157,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
