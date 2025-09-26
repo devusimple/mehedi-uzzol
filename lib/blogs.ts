@@ -91,4 +91,19 @@ export const blogs = [
         featured: false,
         publishAt: "8/20/2025, 5:57:46 PM"
     },
+    {
+        id: 7,
+        title: "Database Management System 2",
+        description:
+            "A comprehensive database management interface with support for multiple database types, query optimization, and data visualization.",
+        image: "/projects/1.png",
+        category: "Backend",
+        tech: ["Go", "SQLite", "PostgreSQL", "REST API"],
+        links: {
+            demo: "#",
+            github: "#",
+        },
+        featured: false,
+        publishAt: "8/20/2025, 5:57:46 PM"
+    },
 ];

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -57,7 +58,7 @@ export function Navigation() {
               onClick={() => scrollToSection("#hero")}
               className="text-xl font-bold text-foreground hover:text-primary transition-colors"
             >
-              MHU
+              <Link href={"/"}>MHU</Link>
             </button>
           </div>
 

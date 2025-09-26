@@ -1,6 +1,4 @@
 import {
-    ExternalLink,
-    Github,
     Smartphone,
     Globe,
     Database,
@@ -19,8 +17,8 @@ export const projects = [
         tech: ["TypeScript", "VS Code API", "REST", "JSON"],
         icon: Code,
         links: {
-            demo: "#",
-            github: "#",
+            demo: "www.mehei.com",
+            github: "www.github.com/devusimple",
         },
         featured: true,
     },

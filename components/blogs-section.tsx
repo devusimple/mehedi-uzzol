@@ -41,7 +41,9 @@ export default function BlogsSection() {
                       "
                       >
                         <Eye className="h-4 w-4 text-white" />
-                        <span className="text-sm">200</span>
+                        <span className="text-sm">
+                          {Math.round(Math.random() * 1000)}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -90,8 +92,13 @@ export default function BlogsSection() {
                         variant="default"
                         className="flex-1 text-xs"
                       >
-                        <BookOpen className="mr-1 h-3 w-3" />
-                        Read
+                        <Link
+                          href={`/blogs/${blog.id}`}
+                          className="flex flex-1 items-center justify-center"
+                        >
+                          <BookOpen className="mr-1 h-3 w-3" />
+                          Read
+                        </Link>
                       </Button>
                       <Button
                         size="sm"

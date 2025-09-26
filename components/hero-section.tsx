@@ -141,57 +141,23 @@ export function HeroSection() {
               </div>
 
               {/* Floating elements */}
-              {/* <div className="absolute -top-4 -right-4 w-16 h-16 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-                <span className="text-xs font-mono text-primary">
-                  <Image
-                    src={require("@/public/front-end-programming.png")}
-                    alt="Frontend logo"
-                    className="object-cover"
-                  />
-                </span>
+              <div className="absolute -top-4 -right-4 w-16 h-16 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                <span className="text-xs font-mono text-primary">NextJS</span>
               </div>
 
               <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
-                <span className="text-xs font-mono text-accent">
-                  <Image
-                    src={require("@/public/bullhorn.png")}
-                    alt="Frontend logo"
-                    className="object-cover"
-                  />
-                </span>
+                <span className="text-xs font-mono text-accent">React</span>
               </div>
 
-              <div className="absolute top-1/2 -left-8 w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center">
-                <span className="text-xs font-mono text-secondary-foreground">
-                  <Image
-                    src={require("@/public/machine-learning.png")}
-                    alt="Frontend logo"
-                    className="object-cover"
-                  />
-                </span>
+              <div className="absolute -bottom-4 -right-4 w-16 h-16 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
+                <span className="text-xs font-mono text-accent">SEO</span>
               </div>
 
-              <div className="absolute top-1/2 -right-8 w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center">
-                <span className="text-xs font-mono text-secondary-foreground">
-                  <Image
-                    src={require("@/public/app-development.png")}
-                    alt="Frontend logo"
-                    className="object-cover"
-                  />
-                </span>
+              <div className="absolute -top-4 -left-4 w-16 h-16 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
+                <span className="text-xs font-mono text-accent">Python</span>
               </div>
 
-              <div className="absolute right-1/2 -top-8 w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center">
-                <span className="text-xs font-mono text-secondary-foreground">
-                  <Image
-                    src={require("@/public/app-development.png")}
-                    alt="Frontend logo"
-                    className="object-cover"
-                  />
-                </span>
-              </div>
-
-              <div className="absolute right-1/2 -bottom-8 w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center">
+              {/* <div className="absolute top-1/2 -right-8 w-12 h-12 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center">
                 <span className="text-xs font-mono text-secondary-foreground">
                   <Image
                     src={require("@/public/app-development.png")}
